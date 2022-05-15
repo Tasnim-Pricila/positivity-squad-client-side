@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Rein Park, Uttara",
+    "slots": [
+      "08.00 AM - 10.00 AM",
+      "10.00 AM - 12.00 AM",
+      "1.00 PM - 3.00 PM",
+      "3.00 PM - 5.00 PM"
+    ]
+  },
+  {
+    "name": "Rose Park, Banani",
+    "slots": [
+      "08.00 AM - 10.00 AM",
+      "10.00 AM - 12.00 AM",
+      "1.00 PM - 3.00 PM",
+      "3.00 PM - 5.00 PM"
+    ]
+  },
+  {
+    "name": "Zam Zam Center, Uttara",
+    "slots": [
+      "08.00 AM - 10.00 AM",
+      "10.00 AM - 12.00 AM",
+      "1.00 PM - 3.00 PM",
+      "3.00 PM - 5.00 PM"
+    ]
+  },
+  {
+    "name": "Ramna Park, Dhaka",
+    "slots": [
+      "08.00 AM - 10.00 AM",
+      "10.00 AM - 12.00 AM",
+      "1.00 PM - 3.00 PM",
+      "3.00 PM - 5.00 PM"
+    ]
+  },
+  {
+    "name": "Keranuging, Puran Dhaka",
+    "slots": [
+      "08.00 AM - 10.00 AM",
+      "10.00 AM - 12.00 AM",
+      "1.00 PM - 3.00 PM",
+      "3.00 PM - 5.00 PM"
+    ]
+  },
+  {
+    "name": "BNS Center, Uttara",
+    "slots": [
+      "08.00 AM - 10.00 AM",
+      "10.00 AM - 12.00 AM",
+      "1.00 PM - 3.00 PM",
+      "3.00 PM - 5.00 PM"
+    ]
+  }
+]
