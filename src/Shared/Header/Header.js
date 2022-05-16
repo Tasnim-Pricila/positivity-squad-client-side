@@ -1,10 +1,19 @@
+import { faSignOut } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
+    const handleSignOut = () => {
+        signOut(auth);
+    }
     return (
         <div>
-             <NavLink to='/' className="btn btn-ghost normal-case text-xl text-center w-full md:hidden block pt-2">Positivity Squad</NavLink>
+            <NavLink to='/' className="btn btn-ghost normal-case text-xl text-center w-full md:hidden block pt-2">Positivity Squad</NavLink>
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -24,12 +33,20 @@ const Header = () => {
                     <ul className="menu menu-horizontal p-0">
                         <li><NavLink to='/'>Home</NavLink></li>
                         <li><NavLink to='/donation'>Donation</NavLink></li>
-                            <li><NavLink to='/events'>Events</NavLink></li>
-                            <li><NavLink to='/blog'>Blog</NavLink></li>
+                        <li><NavLink to='/events'>Events</NavLink></li>
+                        <li><NavLink to='/blog'>Blog</NavLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <NavLink to='/login' className="btn mr-2">Login</NavLink>
+                    {user ?
+                        <button className="btn mr-2"
+                            onClick={handleSignOut}>
+                            Logout
+                            <FontAwesomeIcon icon={faSignOut} className='pl-2'></FontAwesomeIcon>
+                        </button>
+                        :
+                        <NavLink to='/login' className="btn mr-2">Login</NavLink>
+                    }
                     <NavLink to='/admin' className="btn">Admin</NavLink>
                 </div>
             </div>

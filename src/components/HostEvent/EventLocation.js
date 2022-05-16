@@ -31,12 +31,14 @@ const EventLocation = ({ date }) => {
                         ></Location>)
                 }
             </div>
-            {modalData && <BookingModal 
-                            modalData={modalData} 
-                            date={date}
-                            setModalData={setModalData}
-                            >
-                        </BookingModal>}
+            {modalData && 
+                <BookingModal 
+                    modalData={modalData} 
+                    date={date}
+                    setModalData={setModalData}
+                    >
+                </BookingModal>
+            }
         </div>
         
     );
