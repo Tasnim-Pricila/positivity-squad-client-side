@@ -3,7 +3,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
-const BookingModal = ({ modalData, date, setModalData }) => {
+const BookingModal = ({ modalData, date, setModalData, refetch }) => {
     const { name, slots, _id } = modalData;
     const [user] = useAuthState(auth);
     const email = user?.email;
@@ -31,12 +31,14 @@ const BookingModal = ({ modalData, date, setModalData }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    setModalData(null);
+
                     console.log(data);
                 }
-                else{
+                else {
                     console.log(data);
                 }
+                refetch();
+                setModalData(null);
             })
     }
 

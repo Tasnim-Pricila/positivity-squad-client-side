@@ -1,15 +1,14 @@
 import { faAt, faEye, faEyeSlash, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import useToken from '../../CustomHook/useToken';
 import auth from '../../firebase.init';
 import SocialLogin from '../../Shared/SocialLogin';
 
 const SignUp = () => {
-        
         
         // For PAssword hide and show 
         const [eye, setEye] = useState(true);
@@ -38,13 +37,16 @@ const SignUp = () => {
         if (password === cpassword) {
             await createUserWithEmailAndPassword(email, password);
             await updateProfile({displayName: name});
-            setMyError('')      
+            setMyError('')  
+            reset();    
         }
         else if (password !== cpassword) {
             setMyError('Password Does not match')
         }  
     }
-   
+    const [token] = useToken(emailUser);
+
+    
     // Handle Signup Error 
     useEffect(() => {
         if (emailError) {
