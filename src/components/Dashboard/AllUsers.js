@@ -1,14 +1,37 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
+import auth from '../../firebase.init';
 
 const AllUsers = () => {
-
-    const { data : users, isLoading} = useQuery('user', () => 
-        fetch('http://localhost:5000/users')
+    // const [user, loading] = useAuthState(auth);
+    // const email = user?.email;
+    
+    const { data : users, isLoading, refetch} = useQuery('users', () => 
+        fetch('http://localhost:5000/users', {
+            method: 'GET',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+        })
          .then(res => res.json()))
          
     if(isLoading){
         return <p>Loading...</p>
+    }
+
+    const makeAdmin = (email) => {
+        fetch(`http://localhost:5000/user/admin/${email}`,{
+            method: 'PUT',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res => res.json())
+        .then (data => {
+            refetch();
+            console.log(data);   
+        })
     }
 
     return (
@@ -21,7 +44,7 @@ const AllUsers = () => {
                         <tr>
                             <th> No.</th>
                             <th>Email</th>
-                            
+                            <th>Role</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,11 +53,12 @@ const AllUsers = () => {
                                 <tr key={user._id}>
                                     <th>{index + 1}</th>
                                     <td className='font-semibold text-secondary'> {user.email} </td>
-                                    
+                                    {user.role !== 'admin' &&
+                                         <td> <button className="btn btn-xs" onClick={()=> makeAdmin(user.email)}>Make Admin</button> </td>
+                                    }   
                                 </tr>
                             )
                         }
-
                     </tbody>
                 </table>
             </div>

@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AddDonor from './components/AddDonor/AddDonor';
 import AllUsers from './components/Dashboard/AllUsers';
 import Dashboard from './components/Dashboard/Dashboard';
 import MyBookings from './components/Dashboard/MyBookings';
@@ -23,6 +24,7 @@ function App() {
             <Route index element={<MyBookings/>}></Route>
             <Route path='history' element={<MyHistory/>}></Route>
             <Route path='users' element={<AllUsers/>}></Route>
+            <Route path='addDonor' element={<AddDonor/>}></Route>
         </Route>
       </Routes>
     </div>
