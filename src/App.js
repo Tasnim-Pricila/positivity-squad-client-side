@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AllUsers from './components/Dashboard/AllUsers';
 import Dashboard from './components/Dashboard/Dashboard';
 import MyBookings from './components/Dashboard/MyBookings';
 import MyHistory from './components/Dashboard/MyHistory';
@@ -21,6 +22,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard/>}>
             <Route index element={<MyBookings/>}></Route>
             <Route path='history' element={<MyHistory/>}></Route>
+            <Route path='users' element={<AllUsers/>}></Route>
         </Route>
       </Routes>
     </div>

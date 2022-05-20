@@ -2,20 +2,7 @@ import { format } from 'date-fns';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-// fetch(`http://localhost:5000/booking?email=${email}`, {
-//             method: 'GET',
-//             headers: {
-//                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
-//             }
-//         })
-//             .then(res => {
-//                 if (res.status === 401 || res.status === 403) {
-//                     refetch();
-//                     signOut(auth);
-//                     navigate('/login');
-//                 }
-//                 res.json()
-//             })
+
 const BookingModal = ({ modalData, date, setModalData, refetch }) => {
     const { name, slots, _id } = modalData;
     const [user] = useAuthState(auth);
