@@ -66,7 +66,7 @@ const SignUp = () => {
     if (emailLoading || updating) {
         return <p>Loading...</p>
     }
-    if(emailUser){
+    if(token){
         console.log(emailUser);
     }
     return (

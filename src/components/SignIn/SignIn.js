@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAt, faEye, faEyeSlash, faLock } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import SocialLogin from '../../Shared/SocialLogin';
+import useToken from '../../CustomHook/useToken';
 
 const SignIn = () => {
     // For PAssword hide and show 
@@ -30,6 +31,7 @@ const SignIn = () => {
         signInWithEmailAndPassword(email, password);
         setError({});
     }
+    const [token] = useToken(loginUser);
     // Handle Login Error 
     useEffect(() => {
         if (loginError) {
@@ -52,6 +54,10 @@ const SignIn = () => {
     if (loginLoading ) {
         return <p>Loading</p>
     }
+    if(token){
+        console.log(loginUser);
+    }
+
     return (
         <div>
             <div className='flex items-center justify-center text-white bg-cover min-h-[95vh] bg-no-repeat bg-blend-overlay bg-[#4242f8f3] bg-center'>
