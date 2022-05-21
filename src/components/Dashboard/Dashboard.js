@@ -10,7 +10,6 @@ const Dashboard = () => {
     if(user){
         console.log(admin);
     }
-    
 
     return (
         <div>
@@ -29,6 +28,7 @@ const Dashboard = () => {
                             admin && <>
                                 <li><Link to='/dashboard/users'>All Users</Link></li>
                                 <li><Link to='/dashboard/addDonor'>Add a Donor</Link></li>
+                                <li><Link to='/dashboard/manageDonors'>Manage Donors</Link></li>
                                 </>
                         }
                     </ul>

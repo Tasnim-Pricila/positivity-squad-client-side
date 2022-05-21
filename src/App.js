@@ -7,6 +7,7 @@ import MyBookings from './components/Dashboard/MyBookings';
 import MyHistory from './components/Dashboard/MyHistory';
 import Home from './components/Home/Home';
 import HostEvent from './components/HostEvent/HostEvent';
+import ManageDonors from './components/ManageDonors/ManageDonors';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import Header from './Shared/Header/Header';
@@ -25,6 +26,7 @@ function App() {
             <Route path='history' element={<MyHistory/>}></Route>
             <Route path='users' element={<AllUsers/>}></Route>
             <Route path='addDonor' element={<AddDonor/>}></Route>
+            <Route path='manageDonors' element={<ManageDonors/>}></Route>
         </Route>
       </Routes>
     </div>
