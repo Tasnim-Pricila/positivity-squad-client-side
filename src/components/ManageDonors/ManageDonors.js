@@ -60,7 +60,7 @@ const ManageDonors = () => {
                                     <td className='font-semibold text-secondary'> {donor.image} </td>
                                     <td>
                                         <label for="deleteModal" class="btn btn-error" onClick={()=> setDeletingDonor(donor)}>Delete</label>
-                                        
+                                    </td>
                                 </tr>
                             )
                         }
